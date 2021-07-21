@@ -1,0 +1,23 @@
+apiVersion: apps?v1
+kind: Deployment
+  name: jmp
+  namespace: default
+  labels:
+    app: spring-petclinic-n2
+  spec:
+    replicas: 1
+    selector:
+      matchlabels:
+        app: spring-petclinic-n2
+    template:
+      metadata:
+        labels:
+          app: spring-petclinic-n2
+      spec:
+        containers:
+        - name: hello
+          image: nginxdemos/hello
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+
